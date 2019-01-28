@@ -1,4 +1,58 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html, body, #root {
+  font: 16px Roboto,sans-serif;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Estimate {
+  display: grid;
+  grid-template:
+    "title" auto
+    "body " 1fr
+    / 1fr
+  ;
+}
+
+.Estimate__Title {
+  font-size: 30px;
+  padding: 10px;
+}
+
+.EstimateItem {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.EstimateItem {
+  display: grid;
+  grid-template:
+    "checkbox  title        price   " auto
+    ".         description  .       " auto
+    "children  children     children" auto
+    / auto 1fr auto;
+}
+
+.EstimateItem__Checkbox {
+  grid-area: checkbox;
+}
+
+.EstimateItem__Title {
+  grid-area: title;
+}
+
+.EstimateItem__Description {
+  grid-area: description;
+}
+
+.EstimateItem__Children {
+  grid-area: children;
 }
