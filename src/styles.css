@@ -16,10 +16,11 @@ html, body, #root {
 .Estimate {
   display: grid;
   grid-template:
-    "title" auto
-    "body " 1fr
-    / 1fr
+    "title price" auto
+    "body  body " 1fr
+    / 1fr  auto
   ;
+  padding: 0px 10px;
 }
 
 .Estimate__Title {
@@ -27,9 +28,15 @@ html, body, #root {
   padding: 10px;
 }
 
-.EstimateItem {
-  border: 1px solid black;
-  padding: 5px;
+.Estimate__Price {
+  grid-area: price;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.Estimate__Body {
+  grid-area: body;
 }
 
 .EstimateItem {
@@ -39,20 +46,66 @@ html, body, #root {
     ".         description  .       " auto
     "children  children     children" auto
     / auto 1fr auto;
+  border-radius: 20px 20px 0 0;
 }
 
 .EstimateItem__Checkbox {
+  display: grid;
+  grid-template: 1fr / f1r;
+  align-items: center;
+  justify-items: center;
+  background: hsl(220, 50%, 90%);
   grid-area: checkbox;
+  cursor: pointer;
+  border-radius: 10px 0 0 0;
+  width: 30px;
+}
+
+.EstimateItem__Checkbox input {
+  border: 0;
+  display: none;
+}
+
+.EstimateItem__Checkbox input + span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 3px solid hsl(220, 50%, 60%);
+  background: hsl(220, 40%, 100%);
+  border-radius: 3px;
+}
+
+.EstimateItem__Checkbox input:checked + span {
+  background: hsl(220, 40%, 40%);
 }
 
 .EstimateItem__Title {
+  background: hsl(220, 50%, 90%);
   grid-area: title;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 5px 0;
+}
+
+.EstimateItem__Price {
+  background: hsl(220, 50%, 90%);
+  grid-area: price;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 0 10px 0 0;
+  cursor: pointer;
 }
 
 .EstimateItem__Description {
   grid-area: description;
+  margin: 10px 0;
+}
+
+.EstimateItem__Description + .EstimateItem__Children .EstimateItem {
+  margin-top: 0;
 }
 
 .EstimateItem__Children {
   grid-area: children;
+  padding-left: 30px;
 }

@@ -1,5 +1,6 @@
 module.exports = {
   "Twitter Application": {
+    "rate": 120,
     "text": "This is an estimate of what it would take to make the actual twitter.com application that we're all so familiar with.",
     "children": {
       "Users": {
